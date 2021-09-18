@@ -65,11 +65,9 @@ inet6 2a01:53c0:ff0e:2e:20c:29ff:feff:1453/64 scope global dynamic mngtmpaddr no
   
 然后使用自定义的bridge的网络名称ip6bridge创建指定ipv6地址的容器，这时的--ip6参数才能起作用，  
 因为使用系统缺省bridge网络是不能指定--ip6参数的，即使指定了也不生效，也不报错  
-#docker run -dit --restart=always --network=ip6bridge --ip6=2a01:53c0:ff0e:2e:1::2 --name=u18ip6bridge2 \ 
--v /data:/data ubuntu:bionic-20210827 /bin/bash -c "/etc/init.d/cron start;/etc/init.d/run;/bin/bash" 
+#docker run -dit --restart=always --network=ip6bridge --ip6=2a01:53c0:ff0e:2e:1::2 --name=u18ip6bridge2 -v /data:/data ubuntu:bionic-20210827 /bin/bash -c "/etc/init.d/cron start;/etc/init.d/run;/bin/bash" 
   
-#docker run -dit --restart=always --network=ip6bridge --ip6=2a01:53c0:ff0e:2e:1::3 --name=u18ip6bridge3 \ 
--v /data:/data ubuntu:bionic-20210827 /bin/bash -c "/etc/init.d/cron start;/etc/init.d/run;/bin/bash" 
+#docker run -dit --restart=always --network=ip6bridge --ip6=2a01:53c0:ff0e:2e:1::3 --name=u18ip6bridge3 -v /data:/data ubuntu:bionic-20210827 /bin/bash -c "/etc/init.d/cron start;/etc/init.d/run;/bin/bash" 
  
   
 宿主机增加ipv6邻居代理  
