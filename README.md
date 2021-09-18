@@ -71,8 +71,8 @@ inet6 2a01:53c0:ff0e:2e:20c:29ff:feff:1453/64 scope global dynamic mngtmpaddr no
 #docker run -dit --restart=always --network=ip6bridge --ip6=2a01:53c0:ff0e:2e:1::3 --name=u18ip6bridge3 \ 
 -v /data:/data ubuntu:bionic-20210827 /bin/bash -c "/etc/init.d/cron start;/etc/init.d/run;/bin/bash" 
  
- 
-宿主机增加ipv6邻居代理 
+  
+宿主机增加ipv6邻居代理  
 #ip -6 neigh add proxy 2a01:53c0:ff0e:2e:1::2 dev ens33  
 #ip -6 neigh add proxy 2a01:53c0:ff0e:2e:1::3 dev ens33  
   
