@@ -17,7 +17,7 @@ inet6 2a01:53c0:ff0e:2e:20c:29ff:feff:1453/64 scope global dynamic mngtmpaddr no
   
   
 以下daemon.json配置文件使得容器实例获得外访ipv6的能力，这时只要是使用系统缺省bridge网络模式的容器实例，  
-都会被随机分配到2604:3d08:5080:1700:2::/80网段的一个ipv6地址，必须进入容器或用portainer检查获得的IPv6地址，  
+都会被随机分配到2a01:53c0:ff0e:2e:2::/80网段的一个ipv6地址，必须进入容器或用portainer检查获得的IPv6地址，  
 然后在宿主机写邻居代理ip -6 neigh add proxy <ipv6_addr> dev ens33开机命令，否则只能ping6通，  
 其他命令如wget，curl都访问不了，另外因为每次容器或宿主机重启都会被分配新的随机IPv6地址，  
 而使用缺省bridge网络模式时docker run命令的--ip6参数不起作用，所以缺省bridge网络模式获得IPv6基本没有实用性，  
@@ -49,7 +49,7 @@ inet6 2a01:53c0:ff0e:2e:20c:29ff:feff:1453/64 scope global dynamic mngtmpaddr no
   
 使配置生效  
 #sysctl -p  
-  
+
 然后创建容器实例，之后docker attach到容器里面查看ipv6地址，假设是2a01:53c0:ff0e:2e:2::2，然后退出，  
 在宿主机命令行打入下面命令，增加ipv6邻居代理，这时外界才能真正与容器进行ipv6互通  
   
